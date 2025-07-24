@@ -55,6 +55,4 @@ function mqcz_enqueue_like_button_scripts() {
 }
 add_action('wp_footer', 'mqcz_enqueue_like_button_scripts');  
 
-
-
 ?>
