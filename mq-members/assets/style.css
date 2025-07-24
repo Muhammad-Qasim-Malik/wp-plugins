@@ -1,0 +1,164 @@
+.mq-tabs ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    background-color: #f1f1f1;
+    border: 1px solid #ddd;
+}
+.mq-tabs ul li {
+    padding: 10px 20px;
+    cursor: pointer;
+    background: #f1f1f1;
+    border-right: 1px solid #ddd;
+    text-align: center;
+}
+.mq-tabs ul li.active {
+    background: #ddd;
+    font-weight: bold;
+}
+
+/* Tab Content */
+.mq-tab-content {
+    margin-top: 20px;
+}
+.mq-tab-pane {
+    display: none;
+}
+.mq-tab-pane.active {
+    display: block;
+}
+.mq-title {
+    color: black;
+}
+.mq-title:hover {
+    color: #B22222;
+}
+/* Table for Muay-Thai Posts */
+.muay-thai-posts-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+.muay-thai-posts-table th, .muay-thai-posts-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+.muay-thai-posts-table th {
+    background-color: #f1f1f1;
+}
+.muay-thai-posts-table tbody tr {
+    padding: 30px !important;
+}
+.mq_form {
+    /* max-width: 400px; */
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.mq_form input[type="text"],
+.mq_form input[type="email"],
+.mq_form input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+/* Focus effect on input fields */
+.mq_form input[type="text"]:focus,
+.mq_form input[type="email"]:focus,
+.mq_form input[type="password"]:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
+}
+
+
+/* Paragraph styling */
+.mq_form p {
+    font-size: 14px;
+    margin: 10px 0;
+    text-align: center;
+    color: #333;
+}
+
+.mq_form p strong {
+    font-weight: bold;
+}
+
+.mq-button {
+  display: inline-block !important;
+  font-size: 14px !important;
+  font-weight: 400px !important;
+  padding: 14px 20px !important;
+  background-color: #1c1c1c !important;
+  border-radius: 10px !important;
+  color: white !important;
+  transition: background .3s ease-in-out;
+}
+.mq-button-red {
+  background-color: #B22222 !important;
+}
+.mq-button:hover {
+    background-color: #B22222 !important;
+    color: white;
+}
+.mq-top-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+/* Pagination Styling */
+.pagination {
+    margin-top: 20px;
+    text-align: center;
+}
+.pagination a {
+    padding: 5px 10px;
+    margin: 0 2px;
+    background-color: #f1f1f1;
+    text-decoration: none;
+    color: #0073aa;
+    border-radius: 3px;
+}
+.pagination a:hover {
+    background-color: #0073aa;
+    color: white;
+}
+
+.mq-single-academy {
+    /* margin: 20px; */
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.academy-details {
+    margin: 15px 0px 20px 0px;
+}
+
+.academy-featured-image img {
+    max-width: 100%;
+    height: auto;
+    margin: 0p 0px 15px 0px;
+}
+
+.academy-images img {
+    max-width: 45% !important;
+    margin-top: 10px;
+}
+
+.academy-images {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
