@@ -12,7 +12,10 @@ This repository is currently under active development, and new plugins will be a
 
 ### ✅ Current Plugins
 
-- *None yet* – Stay tuned!
+- *Custom Sitemap* – For General Use.
+- *Backstage by MQ* – For General Use.
+- *MQ Cook Zone* – For Client.
+- *MQ Members* – For Client.
 
 Once plugins are added, this list will be updated.
 
