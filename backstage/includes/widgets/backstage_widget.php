@@ -9,7 +9,7 @@ class Elementor_Backstage_Widget extends \Elementor\Widget_Base {
     }
 
     public function get_title() {
-        return __('Backstage Image', 'backstage');
+        return __('Backstage Image', 'backstage-by-mq');
     }
 
     public function get_icon() {
@@ -20,24 +20,24 @@ class Elementor_Backstage_Widget extends \Elementor\Widget_Base {
         return ['basic'];
     }
 
-    protected function _register_controls() {
+    protected function register_controls() {
         /**************************************************************************************************/
         /*******************************************Container Styling**************************************/
         /**************************************************************************************************/
         $this->start_controls_section(
             'container_section',
             [
-                'label' => __('Container', 'backstage'),
+                'label' => __('Container', 'backstage-by-mq'),
                 'tab' => \Elementor\Controls_Manager::TAB_STYLE,
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'width',
             [
-                'label' => esc_html__('Width', 'backstage'),
+                'label' => esc_html__('Width', 'backstage-by-mq'),
                 'type' => \Elementor\Controls_Manager::SLIDER,
-                'size_units' => ['%', 'px', 'em'],
+                'size_units' => ['%', 'px', 'vw'],
                 'range' => [
                     'px' => [
                         'min' => 0,
@@ -47,10 +47,28 @@ class Elementor_Backstage_Widget extends \Elementor\Widget_Base {
                         'min' => 0,
                         'max' => 100,
                     ],
+                    'vw' => [
+                        'min' => 0,
+                        'max' => 100,
+                    ],
                 ],
                 'default' => [
                     'unit' => '%',
                     'size' => 100,
+                ],
+                'responsive' => [
+                    'desktop' => [
+                        'unit' => '%',
+                        'size' => 100,
+                    ],
+                    'tablet' => [
+                        'unit' => '%',
+                        'size' => 90,
+                    ],
+                    'mobile' => [
+                        'unit' => '%',
+                        'size' => 95,
+                    ],
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .backstage-container' => 'width: {{SIZE}}{{UNIT}};',
@@ -58,21 +76,39 @@ class Elementor_Backstage_Widget extends \Elementor\Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'height',
             [
-                'label' => esc_html__('Height', 'backstage'),
+                'label' => esc_html__('Height', 'backstage-by-mq'),
                 'type' => \Elementor\Controls_Manager::SLIDER,
-                'size_units' => ['px'],
+                'size_units' => ['px', 'vh'],
                 'range' => [
                     'px' => [
                         'min' => 0,
                         'max' => 1200,
                     ],
+                    'vh' => [
+                        'min' => 0,
+                        'max' => 100,
+                    ],
                 ],
                 'default' => [
                     'unit' => 'px',
                     'size' => 200,
+                ],
+                'responsive' => [
+                    'desktop' => [
+                        'unit' => 'px',
+                        'size' => 200,
+                    ],
+                    'tablet' => [
+                        'unit' => 'px',
+                        'size' => 180,
+                    ],
+                    'mobile' => [
+                        'unit' => 'px',
+                        'size' => 150,
+                    ],
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .backstage-container' => 'height: {{SIZE}}{{UNIT}};',
@@ -80,33 +116,75 @@ class Elementor_Backstage_Widget extends \Elementor\Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'container_alignment',
             [
-                'label' => esc_html__('Alignment', 'backstage'),
+                'label' => esc_html__('Alignment', 'backstage-by-mq'),
                 'type' => \Elementor\Controls_Manager::CHOOSE,
                 'options' => [
                     'left' => [
-                        'title' => esc_html__('Left', 'backstage'),
+                        'title' => esc_html__('Left', 'backstage-by-mq'),
                         'icon' => 'eicon-text-align-left',
                     ],
                     'center' => [
-                        'title' => esc_html__('Center', 'backstage'),
+                        'title' => esc_html__('Center', 'backstage-by-mq'),
                         'icon' => 'eicon-text-align-center',
                     ],
                     'right' => [
-                        'title' => esc_html__('Right', 'backstage'),
+                        'title' => esc_html__('Right', 'backstage-by-mq'),
                         'icon' => 'eicon-text-align-right',
                     ],
                 ],
                 'default' => 'center',
                 'selectors' => [
-                    '{{WRAPPER}} .backstage-container' => 'display: block; margin: {{VALUE}};',
+                    '{{WRAPPER}} .backstage-container' => 'margin: {{VALUE}};',
                 ],
                 'selectors_dictionary' => [
                     'left' => '0 auto 0 0',
                     'center' => '0 auto',
                     'right' => '0 0 0 auto',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'container_radius',
+            [
+                'label' => __('Container Border Radius', 'backstage-by-mq'),
+                'type' => \Elementor\Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%'],
+                'default' => [
+                    'top' => 0,
+                    'right' => 0,
+                    'bottom' => 0,
+                    'left' => 0,
+                    'unit' => 'px',
+                ],
+                'responsive' => [
+                    'desktop' => [
+                        'top' => 0,
+                        'right' => 0,
+                        'bottom' => 0,
+                        'left' => 0,
+                        'unit' => 'px',
+                    ],
+                    'tablet' => [
+                        'top' => 0,
+                        'right' => 0,
+                        'bottom' => 0,
+                        'left' => 0,
+                        'unit' => 'px',
+                    ],
+                    'mobile' => [
+                        'top' => 0,
+                        'right' => 0,
+                        'bottom' => 0,
+                        'left' => 0,
+                        'unit' => 'px',
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .backstage-container' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -119,7 +197,7 @@ class Elementor_Backstage_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'logo_section',
             [
-                'label' => __('Site Logo', 'backstage'),
+                'label' => __('Site Logo', 'backstage-by-mq'),
                 'tab' => \Elementor\Controls_Manager::TAB_STYLE,
             ]
         );
@@ -127,10 +205,10 @@ class Elementor_Backstage_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'logo_position_popover',
             [
-                'label' => esc_html__('Logo Position', 'backstage'),
+                'label' => esc_html__('Logo Position', 'backstage-by-mq'),
                 'type' => \Elementor\Controls_Manager::POPOVER_TOGGLE,
-                'label_off' => esc_html__('Default', 'backstage'),
-                'label_on' => esc_html__('Custom', 'backstage'),
+                'label_off' => esc_html__('Default', 'backstage-by-mq'),
+                'label_on' => esc_html__('Custom', 'backstage-by-mq'),
                 'return_value' => 'yes',
                 'default' => 'yes',
             ]
@@ -141,38 +219,54 @@ class Elementor_Backstage_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'logo_vertical_position',
             [
-                'label' => esc_html__('Vertical Position', 'backstage'),
+                'label' => esc_html__('Vertical Position', 'backstage-by-mq'),
                 'type' => \Elementor\Controls_Manager::SELECT,
                 'options' => [
-                    'top' => esc_html__('Top', 'backstage'),
-                    'bottom' => esc_html__('Bottom', 'backstage'),
+                    'top' => esc_html__('Top', 'backstage-by-mq'),
+                    'bottom' => esc_html__('Bottom', 'backstage-by-mq'),
                 ],
                 'default' => 'top',
                 'frontend_available' => true,
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'logo_vertical_value',
             [
-                'label' => esc_html__('Vertical Value', 'backstage'),
+                'label' => esc_html__('Vertical Value', 'backstage-by-mq'),
                 'type' => \Elementor\Controls_Manager::SLIDER,
-                'size_units' => ['px', '%'],
+                'size_units' => ['px', '%', 'vh'],
                 'range' => [
                     'px' => [
                         'min' => 0,
                         'max' => 200,
-                        'step' => 1,
                     ],
                     '%' => [
                         'min' => 0,
                         'max' => 100,
-                        'step' => 1,
+                    ],
+                    'vh' => [
+                        'min' => 0,
+                        'max' => 100,
                     ],
                 ],
                 'default' => [
                     'unit' => 'px',
                     'size' => 20,
+                ],
+                'responsive' => [
+                    'desktop' => [
+                        'unit' => 'px',
+                        'size' => 20,
+                    ],
+                    'tablet' => [
+                        'unit' => 'px',
+                        'size' => 15,
+                    ],
+                    'mobile' => [
+                        'unit' => 'px',
+                        'size' => 10,
+                    ],
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .backstage-logo' => 'position: absolute; {{logo_vertical_position.VALUE}}: {{SIZE}}{{UNIT}};',
@@ -186,38 +280,54 @@ class Elementor_Backstage_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'logo_horizontal_position',
             [
-                'label' => esc_html__('Horizontal Position', 'backstage'),
+                'label' => esc_html__('Horizontal Position', 'backstage-by-mq'),
                 'type' => \Elementor\Controls_Manager::SELECT,
                 'options' => [
-                    'left' => esc_html__('Left', 'backstage'),
-                    'right' => esc_html__('Right', 'backstage'),
+                    'left' => esc_html__('Left', 'backstage-by-mq'),
+                    'right' => esc_html__('Right', 'backstage-by-mq'),
                 ],
                 'default' => 'left',
                 'frontend_available' => true,
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'logo_horizontal_value',
             [
-                'label' => esc_html__('Horizontal Value', 'backstage'),
+                'label' => esc_html__('Horizontal Value', 'backstage-by-mq'),
                 'type' => \Elementor\Controls_Manager::SLIDER,
-                'size_units' => ['px', '%'],
+                'size_units' => ['px', '%', 'vw'],
                 'range' => [
                     'px' => [
                         'min' => 0,
                         'max' => 200,
-                        'step' => 1,
                     ],
                     '%' => [
                         'min' => 0,
                         'max' => 100,
-                        'step' => 1,
+                    ],
+                    'vw' => [
+                        'min' => 0,
+                        'max' => 100,
                     ],
                 ],
                 'default' => [
                     'unit' => 'px',
                     'size' => 20,
+                ],
+                'responsive' => [
+                    'desktop' => [
+                        'unit' => 'px',
+                        'size' => 20,
+                    ],
+                    'tablet' => [
+                        'unit' => 'px',
+                        'size' => 15,
+                    ],
+                    'mobile' => [
+                        'unit' => 'px',
+                        'size' => 10,
+                    ],
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .backstage-logo' => 'position: absolute; {{logo_horizontal_position.VALUE}}: {{SIZE}}{{UNIT}};',
@@ -230,22 +340,39 @@ class Elementor_Backstage_Widget extends \Elementor\Widget_Base {
 
         $this->end_popover();
 
-        $this->add_control(
+        $this->add_responsive_control(
             'logo_height',
             [
-                'label' => esc_html__('Height', 'backstage'),
+                'label' => esc_html__('Height', 'backstage-by-mq'),
                 'type' => \Elementor\Controls_Manager::SLIDER,
-                'size_units' => ['px'],
+                'size_units' => ['px', 'vh'],
                 'range' => [
                     'px' => [
                         'min' => 10,
                         'max' => 200,
-                        'step' => 1,
+                    ],
+                    'vh' => [
+                        'min' => 1,
+                        'max' => 20,
                     ],
                 ],
                 'default' => [
                     'unit' => 'px',
                     'size' => 40,
+                ],
+                'responsive' => [
+                    'desktop' => [
+                        'unit' => 'px',
+                        'size' => 40,
+                    ],
+                    'tablet' => [
+                        'unit' => 'px',
+                        'size' => 35,
+                    ],
+                    'mobile' => [
+                        'unit' => 'px',
+                        'size' => 30,
+                    ],
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .backstage-logo' => 'height: {{SIZE}}{{UNIT}}; width: auto;',
@@ -253,45 +380,78 @@ class Elementor_Backstage_Widget extends \Elementor\Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'logo_opacity',
             [
-                'label' => esc_html__('Opacity', 'backstage'),
+                'label' => esc_html__('Opacity', 'backstage-by-mq'),
                 'type' => \Elementor\Controls_Manager::NUMBER,
                 'min' => 0,
                 'max' => 1,
                 'step' => 0.1,
                 'default' => 0.8,
+                'responsive' => [
+                    'desktop' => [
+                        'value' => 0.8,
+                    ],
+                    'tablet' => [
+                        'value' => 0.8,
+                    ],
+                    'mobile' => [
+                        'value' => 0.8,
+                    ],
+                ],
                 'selectors' => [
                     '{{WRAPPER}} .backstage-logo' => 'opacity: {{VALUE}};',
                 ],
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'logo_transition_duration',
             [
-                'label' => esc_html__('Transition Duration (seconds)', 'backstage'),
+                'label' => esc_html__('Transition Duration (seconds)', 'backstage-by-mq'),
                 'type' => \Elementor\Controls_Manager::NUMBER,
                 'min' => 0,
                 'max' => 2,
                 'step' => 0.1,
                 'default' => 0.3,
+                'responsive' => [
+                    'desktop' => [
+                        'value' => 0.3,
+                    ],
+                    'tablet' => [
+                        'value' => 0.3,
+                    ],
+                    'mobile' => [
+                        'value' => 0.3,
+                    ],
+                ],
                 'selectors' => [
                     '{{WRAPPER}} .backstage-logo' => 'transition: opacity {{VALUE}}s ease-in-out;',
                 ],
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'logo_hover_opacity',
             [
-                'label' => esc_html__('Hover Opacity', 'backstage'),
+                'label' => esc_html__('Hover Opacity', 'backstage-by-mq'),
                 'type' => \Elementor\Controls_Manager::NUMBER,
                 'min' => 0,
                 'max' => 1,
                 'step' => 0.1,
                 'default' => 1,
+                'responsive' => [
+                    'desktop' => [
+                        'value' => 1,
+                    ],
+                    'tablet' => [
+                        'value' => 1,
+                    ],
+                    'mobile' => [
+                        'value' => 1,
+                    ],
+                ],
                 'selectors' => [
                     '{{WRAPPER}} .backstage-logo:hover' => 'opacity: {{VALUE}};',
                 ],
@@ -301,12 +461,312 @@ class Elementor_Backstage_Widget extends \Elementor\Widget_Base {
         $this->end_controls_section();
 
         /**************************************************************************************************/
-        /*******************************************Content Styling****************************************/
+        /*******************************************Image Styling****************************************/
+        /**************************************************************************************************/
+        $this->start_controls_section(
+            'image_style_section',
+            [
+                'label' => esc_html__('Image', 'backstage-by-mq'),
+                'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_control(
+            'image_position_popover',
+            [
+                'label' => esc_html__('Image Position', 'backstage-by-mq'),
+                'type' => \Elementor\Controls_Manager::POPOVER_TOGGLE,
+                'label_off' => esc_html__('Default', 'backstage-by-mq'),
+                'label_on' => esc_html__('Custom', 'backstage-by-mq'),
+                'return_value' => 'yes',
+                'default' => '',
+            ]
+        );
+
+        $this->start_popover();
+
+        $this->add_control(
+            'image_vertical_position',
+            [
+                'label' => esc_html__('Vertical Position', 'backstage-by-mq'),
+                'type' => \Elementor\Controls_Manager::SELECT,
+                'options' => [
+                    'top' => esc_html__('Top', 'backstage-by-mq'),
+                    'bottom' => esc_html__('Bottom', 'backstage-by-mq'),
+                ],
+                'default' => 'top',
+                'frontend_available' => true,
+            ]
+        );
+
+        $this->add_responsive_control(
+            'image_vertical_value',
+            [
+                'label' => esc_html__('Vertical Value', 'backstage-by-mq'),
+                'type' => \Elementor\Controls_Manager::SLIDER,
+                'size_units' => ['px', '%', 'vh'],
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 500,
+                    ],
+                    '%' => [
+                        'min' => 0,
+                        'max' => 100,
+                    ],
+                    'vh' => [
+                        'min' => 0,
+                        'max' => 100,
+                    ],
+                ],
+                'default' => [
+                    'unit' => '%',
+                    'size' => 50,
+                ],
+                'responsive' => [
+                    'desktop' => [
+                        'unit' => '%',
+                        'size' => 50,
+                    ],
+                    'tablet' => [
+                        'unit' => '%',
+                        'size' => 50,
+                    ],
+                    'mobile' => [
+                        'unit' => '%',
+                        'size' => 50,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .backstage-image' => 'position: absolute; {{image_vertical_position.VALUE}}: {{SIZE}}{{UNIT}}; transform: none;',
+                ],
+                'condition' => [
+                    'image_position_popover' => 'yes',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'image_horizontal_position',
+            [
+                'label' => esc_html__('Horizontal Position', 'backstage-by-mq'),
+                'type' => \Elementor\Controls_Manager::SELECT,
+                'options' => [
+                    'left' => esc_html__('Left', 'backstage-by-mq'),
+                    'right' => esc_html__('Right', 'backstage-by-mq'),
+                ],
+                'default' => 'left',
+                'frontend_available' => true,
+            ]
+        );
+
+        $this->add_responsive_control(
+            'image_horizontal_value',
+            [
+                'label' => esc_html__('Horizontal Value', 'backstage-by-mq'),
+                'type' => \Elementor\Controls_Manager::SLIDER,
+                'size_units' => ['px', '%', 'vw'],
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 500,
+                    ],
+                    '%' => [
+                        'min' => 0,
+                        'max' => 100,
+                    ],
+                    'vw' => [
+                        'min' => 0,
+                        'max' => 100,
+                    ],
+                ],
+                'default' => [
+                    'unit' => '%',
+                    'size' => 50,
+                ],
+                'responsive' => [
+                    'desktop' => [
+                        'unit' => '%',
+                        'size' => 50,
+                    ],
+                    'tablet' => [
+                        'unit' => '%',
+                        'size' => 50,
+                    ],
+                    'mobile' => [
+                        'unit' => '%',
+                        'size' => 50,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .backstage-image' => 'position: absolute; {{image_horizontal_position.VALUE}}: {{SIZE}}{{UNIT}}; transform: none;',
+                ],
+                'condition' => [
+                    'image_position_popover' => 'yes',
+                ],
+            ]
+        );
+
+        $this->end_popover();
+
+        $this->add_responsive_control(
+            'image_width',
+            [
+                'label' => esc_html__('Image Width', 'backstage-by-mq'),
+                'type' => \Elementor\Controls_Manager::SLIDER,
+                'size_units' => ['px', '%', 'vw'],
+                'range' => [
+                    'px' => [
+                        'min' => 50,
+                        'max' => 500,
+                    ],
+                    '%' => [
+                        'min' => 10,
+                        'max' => 100,
+                    ],
+                    'vw' => [
+                        'min' => 10,
+                        'max' => 100,
+                    ],
+                ],
+                'default' => [
+                    'unit' => 'px',
+                    'size' => 200,
+                ],
+                'responsive' => [
+                    'desktop' => [
+                        'unit' => 'px',
+                        'size' => 200,
+                    ],
+                    'tablet' => [
+                        'unit' => 'px',
+                        'size' => 180,
+                    ],
+                    'mobile' => [
+                        'unit' => 'px',
+                        'size' => 150,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .backstage-image' => 'width: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'image_height',
+            [
+                'label' => esc_html__('Image Height', 'backstage-by-mq'),
+                'type' => \Elementor\Controls_Manager::SLIDER,
+                'size_units' => ['px', '%', 'vh'],
+                'range' => [
+                    'px' => [
+                        'min' => 50,
+                        'max' => 500,
+                    ],
+                    '%' => [
+                        'min' => 10,
+                        'max' => 100,
+                    ],
+                    'vh' => [
+                        'min' => 10,
+                        'max' => 100,
+                    ],
+                ],
+                'default' => [
+                    'unit' => 'px',
+                    'size' => 200,
+                ],
+                'responsive' => [
+                    'desktop' => [
+                        'unit' => 'px',
+                        'size' => 200,
+                    ],
+                    'tablet' => [
+                        'unit' => 'px',
+                        'size' => 180,
+                    ],
+                    'mobile' => [
+                        'unit' => 'px',
+                        'size' => 150,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .backstage-image' => 'height: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'image_object_fit',
+            [
+                'label' => esc_html__('Object Fit', 'backstage-by-mq'),
+                'type' => \Elementor\Controls_Manager::SELECT,
+                'options' => [
+                    'cover' => esc_html__('Cover', 'backstage-by-mq'),
+                    'contain' => esc_html__('Contain', 'backstage-by-mq'),
+                    'fill' => esc_html__('Fill', 'backstage-by-mq'),
+                    'none' => esc_html__('None', 'backstage-by-mq'),
+                    'scale-down' => esc_html__('Scale Down', 'backstage-by-mq'),
+                ],
+                'default' => 'cover',
+                'selectors' => [
+                    '{{WRAPPER}} .backstage-image' => 'object-fit: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'image_radius',
+            [
+                'label' => __('Image Border Radius', 'backstage-by-mq'),
+                'type' => \Elementor\Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%'],
+                'default' => [
+                    'top' => 0,
+                    'right' => 0,
+                    'bottom' => 0,
+                    'left' => 0,
+                    'unit' => 'px',
+                ],
+                'responsive' => [
+                    'desktop' => [
+                        'top' => 0,
+                        'right' => 0,
+                        'bottom' => 0,
+                        'left' => 0,
+                        'unit' => 'px',
+                    ],
+                    'tablet' => [
+                        'top' => 0,
+                        'right' => 0,
+                        'bottom' => 0,
+                        'left' => 0,
+                        'unit' => 'px',
+                    ],
+                    'mobile' => [
+                        'top' => 0,
+                        'right' => 0,
+                        'bottom' => 0,
+                        'left' => 0,
+                        'unit' => 'px',
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .backstage-image' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->end_controls_section();
+
+        /**************************************************************************************************/
+        /*******************************************Content Section****************************************/
         /**************************************************************************************************/
         $this->start_controls_section(
             'content_style_section',
             [
-                'label' => esc_html__('Content Styling', 'backstage'),
+                'label' => esc_html__('Content Styling', 'backstage-by-mq'),
                 'tab' => \Elementor\Controls_Manager::TAB_STYLE,
             ]
         );
@@ -314,10 +774,10 @@ class Elementor_Backstage_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'content_position_popover',
             [
-                'label' => esc_html__('Content Position', 'backstage'),
+                'label' => esc_html__('Content Position', 'backstage-by-mq'),
                 'type' => \Elementor\Controls_Manager::POPOVER_TOGGLE,
-                'label_off' => esc_html__('Default', 'backstage'),
-                'label_on' => esc_html__('Custom', 'backstage'),
+                'label_off' => esc_html__('Default', 'backstage-by-mq'),
+                'label_on' => esc_html__('Custom', 'backstage-by-mq'),
                 'return_value' => 'yes',
                 'default' => '',
             ]
@@ -328,41 +788,57 @@ class Elementor_Backstage_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'content_vertical_position',
             [
-                'label' => esc_html__('Vertical Position', 'backstage'),
+                'label' => esc_html__('Vertical Position', 'backstage-by-mq'),
                 'type' => \Elementor\Controls_Manager::SELECT,
                 'options' => [
-                    'top' => esc_html__('Top', 'backstage'),
-                    'bottom' => esc_html__('Bottom', 'backstage'),
+                    'top' => esc_html__('Top', 'backstage-by-mq'),
+                    'bottom' => esc_html__('Bottom', 'backstage-by-mq'),
                 ],
                 'default' => 'top',
                 'frontend_available' => true,
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'content_vertical_value',
             [
-                'label' => esc_html__('Vertical Value', 'backstage'),
+                'label' => esc_html__('Vertical Value', 'backstage-by-mq'),
                 'type' => \Elementor\Controls_Manager::SLIDER,
-                'size_units' => ['px', '%'],
+                'size_units' => ['px', '%', 'vh'],
                 'range' => [
                     'px' => [
                         'min' => 0,
                         'max' => 500,
-                        'step' => 1,
                     ],
                     '%' => [
                         'min' => 0,
                         'max' => 100,
-                        'step' => 1,
+                    ],
+                    'vh' => [
+                        'min' => 0,
+                        'max' => 100,
                     ],
                 ],
                 'default' => [
                     'unit' => '%',
                     'size' => 50,
                 ],
+                'responsive' => [
+                    'desktop' => [
+                        'unit' => '%',
+                        'size' => 50,
+                    ],
+                    'tablet' => [
+                        'unit' => '%',
+                        'size' => 50,
+                    ],
+                    'mobile' => [
+                        'unit' => '%',
+                        'size' => 50,
+                    ],
+                ],
                 'selectors' => [
-                    '{{WRAPPER}} .content' => 'position: absolute; {{content_vertical_position.VALUE}}: {{SIZE}}{{UNIT}}; transform: none;',
+                    '{{WRAPPER}} .backstage-title' => 'position: absolute; {{content_vertical_position.VALUE}}: {{SIZE}}{{UNIT}}; transform: none;',
                 ],
                 'condition' => [
                     'content_position_popover' => 'yes',
@@ -373,41 +849,57 @@ class Elementor_Backstage_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'content_horizontal_position',
             [
-                'label' => esc_html__('Horizontal Position', 'backstage'),
+                'label' => esc_html__('Horizontal Position', 'backstage-by-mq'),
                 'type' => \Elementor\Controls_Manager::SELECT,
                 'options' => [
-                    'left' => esc_html__('Left', 'backstage'),
-                    'right' => esc_html__('Right', 'backstage'),
+                    'left' => esc_html__('Left', 'backstage-by-mq'),
+                    'right' => esc_html__('Right', 'backstage-by-mq'),
                 ],
                 'default' => 'left',
                 'frontend_available' => true,
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'content_horizontal_value',
             [
-                'label' => esc_html__('Horizontal Value', 'backstage'),
+                'label' => esc_html__('Horizontal Value', 'backstage-by-mq'),
                 'type' => \Elementor\Controls_Manager::SLIDER,
-                'size_units' => ['px', '%'],
+                'size_units' => ['px', '%', 'vw'],
                 'range' => [
                     'px' => [
                         'min' => 0,
                         'max' => 500,
-                        'step' => 1,
                     ],
                     '%' => [
                         'min' => 0,
                         'max' => 100,
-                        'step' => 1,
+                    ],
+                    'vw' => [
+                        'min' => 0,
+                        'max' => 100,
                     ],
                 ],
                 'default' => [
                     'unit' => '%',
                     'size' => 50,
                 ],
+                'responsive' => [
+                    'desktop' => [
+                        'unit' => '%',
+                        'size' => 50,
+                    ],
+                    'tablet' => [
+                        'unit' => '%',
+                        'size' => 50,
+                    ],
+                    'mobile' => [
+                        'unit' => '%',
+                        'size' => 50,
+                    ],
+                ],
                 'selectors' => [
-                    '{{WRAPPER}} .content' => 'position: absolute; {{content_horizontal_position.VALUE}}: {{SIZE}}{{UNIT}}; transform: none;',
+                    '{{WRAPPER}} .backstage-title' => 'position: absolute; {{content_horizontal_position.VALUE}}: {{SIZE}}{{UNIT}}; transform: none;',
                 ],
                 'condition' => [
                     'content_position_popover' => 'yes',
@@ -417,92 +909,32 @@ class Elementor_Backstage_Widget extends \Elementor\Widget_Base {
 
         $this->end_popover();
 
-        $this->add_control(
-            'image_width',
-            [
-                'label' => esc_html__('Image Width', 'backstage'),
-                'type' => \Elementor\Controls_Manager::SLIDER,
-                'size_units' => ['px', '%'],
-                'range' => [
-                    'px' => [
-                        'min' => 50,
-                        'max' => 500,
-                        'step' => 1,
-                    ],
-                    '%' => [
-                        'min' => 10,
-                        'max' => 100,
-                        'step' => 1,
-                    ],
-                ],
-                'default' => [
-                    'unit' => 'px',
-                    'size' => 200,
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .content.backstage-image' => 'width: {{SIZE}}{{UNIT}};',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'image_height',
-            [
-                'label' => esc_html__('Image Height', 'backstage'),
-                'type' => \Elementor\Controls_Manager::SLIDER,
-                'size_units' => ['px', '%'],
-                'range' => [
-                    'px' => [
-                        'min' => 50,
-                        'max' => 500,
-                        'step' => 1,
-                    ],
-                    '%' => [
-                        'min' => 10,
-                        'max' => 100,
-                        'step' => 1,
-                    ],
-                ],
-                'default' => [
-                    'unit' => 'px',
-                    'size' => 200,
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .content.backstage-image' => 'height: {{SIZE}}{{UNIT}};',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'image_object_fit',
-            [
-                'label' => esc_html__('Object Fit', 'backstage'),
-                'type' => \Elementor\Controls_Manager::SELECT,
-                'options' => [
-                    'cover' => esc_html__('Cover', 'backstage'),
-                    'contain' => esc_html__('Contain', 'backstage'),
-                    'fill' => esc_html__('Fill', 'backstage'),
-                    'none' => esc_html__('None', 'backstage'),
-                    'scale-down' => esc_html__('Scale Down', 'backstage'),
-                ],
-                'default' => 'cover',
-                'selectors' => [
-                    '{{WRAPPER}} .content.backstage-image' => 'object-fit: {{VALUE}};',
-                ],
-            ]
-        );
-
         $this->add_group_control(
             \Elementor\Group_Control_Typography::get_type(),
             [
                 'name' => 'content_typography',
-                'label' => esc_html__('Typography', 'backstage'),
-                'selector' => '{{WRAPPER}} .content.backstage-title',
+                'label' => esc_html__('Typography', 'backstage-by-mq'),
+                'selector' => '{{WRAPPER}} .backstage-title',
+                'responsive' => true,
                 'fields_options' => [
                     'font_size' => [
                         'default' => [
                             'unit' => 'px',
                             'size' => 50,
+                        ],
+                        'responsive' => [
+                            'desktop' => [
+                                'unit' => 'px',
+                                'size' => 50,
+                            ],
+                            'tablet' => [
+                                'unit' => 'px',
+                                'size' => 40,
+                            ],
+                            'mobile' => [
+                                'unit' => 'px',
+                                'size' => 30,
+                            ],
                         ],
                     ],
                     'font_weight' => [
@@ -513,19 +945,44 @@ class Elementor_Backstage_Widget extends \Elementor\Widget_Base {
                             'unit' => 'px',
                             'size' => 1,
                         ],
+                        'responsive' => [
+                            'desktop' => [
+                                'unit' => 'px',
+                                'size' => 1,
+                            ],
+                            'tablet' => [
+                                'unit' => 'px',
+                                'size' => 0.8,
+                            ],
+                            'mobile' => [
+                                'unit' => 'px',
+                                'size' => 0.6,
+                            ],
+                        ],
                     ],
                 ],
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'content_text_color',
             [
-                'label' => esc_html__('Text Color', 'backstage'),
+                'label' => esc_html__('Text Color', 'backstage-by-mq'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'default' => '#FFFFFF',
+                'responsive' => [
+                    'desktop' => [
+                        'value' => '#FFFFFF',
+                    ],
+                    'tablet' => [
+                        'value' => '#FFFFFF',
+                    ],
+                    'mobile' => [
+                        'value' => '#FFFFFF',
+                    ],
+                ],
                 'selectors' => [
-                    '{{WRAPPER}} .content.backstage-title' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .backstage-title' => 'color: {{VALUE}};',
                 ],
             ]
         );
@@ -534,8 +991,8 @@ class Elementor_Backstage_Widget extends \Elementor\Widget_Base {
             \Elementor\Group_Control_Text_Shadow::get_type(),
             [
                 'name' => 'content_text_shadow',
-                'label' => esc_html__('Text Shadow', 'backstage'),
-                'selector' => '{{WRAPPER}} .content.backstage-title',
+                'label' => esc_html__('Text Shadow', 'backstage-by-mq'),
+                'selector' => '{{WRAPPER}} .backstage-title',
                 'fields_options' => [
                     'text_shadow' => [
                         'default' => [
@@ -543,6 +1000,26 @@ class Elementor_Backstage_Widget extends \Elementor\Widget_Base {
                             'vertical' => 2,
                             'blur' => 4,
                             'color' => 'rgba(0, 0, 0, 0.6)',
+                        ],
+                        'responsive' => [
+                            'desktop' => [
+                                'horizontal' => 2,
+                                'vertical' => 2,
+                                'blur' => 4,
+                                'color' => 'rgba(0, 0, 0, 0.6)',
+                            ],
+                            'tablet' => [
+                                'horizontal' => 1.5,
+                                'vertical' => 1.5,
+                                'blur' => 3,
+                                'color' => 'rgba(0, 0, 0, 0.6)',
+                            ],
+                            'mobile' => [
+                                'horizontal' => 1,
+                                'vertical' => 1,
+                                'blur' => 2,
+                                'color' => 'rgba(0, 0, 0, 0.6)',
+                            ],
                         ],
                     ],
                 ],
@@ -560,19 +1037,51 @@ class Elementor_Backstage_Widget extends \Elementor\Widget_Base {
         $site_logo = wp_get_attachment_image_url(get_theme_mod('custom_logo'), 'full');
         $image_url = get_post_meta(get_the_ID(), '_image_url', true);
 
-        // Apply default centering for .content if position popover is not enabled
         $content_style = '';
         if (empty($settings['content_position_popover'])) {
             $content_style = 'style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);"';
         }
 
         ?>
+        <style>
+            .backstage-container {
+                position: relative;
+                background-size: cover;
+                background-position: center;
+                overflow: hidden;
+            }
+            .backstage-image, .backstage-title, .backstage-logo {
+                transition: all 0.3s ease-in-out;
+            }
+            @media (max-width: 1024px) {
+                .backstage-container {
+                    background-size: contain;
+                }
+                .backstage-image {
+                    max-width: 90%;
+                }
+                .backstage-title {
+                    font-size: 40px;
+                }
+            }
+            @media (max-width: 767px) {
+                .backstage-container {
+                    background-size: contain;
+                }
+                .backstage-image {
+                    max-width: 85%;
+                }
+                .backstage-title {
+                    font-size: 30px;
+                }
+                .backstage-logo {
+                    max-height: 30px;
+                }
+            }
+        </style>
         <div class="backstage-container" style="background-image: url(<?php echo esc_url($background_url); ?>);">
-            <?php if ($image_url) : ?>
-                <img src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr($title); ?>" class="content backstage-image" <?php echo $content_style; ?>>
-            <?php else : ?>
-                <p class="content backstage-title" <?php echo $content_style; ?>><?php echo esc_html($title); ?></p>
-            <?php endif; ?>
+            <img src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr($title); ?>" class="backstage-image" <?php echo $content_style; ?>>
+            <p class="backstage-title" <?php echo $content_style; ?>><?php echo esc_html($title); ?></p>
             <?php if ($site_logo) : ?>
                 <img src="<?php echo esc_url($site_logo); ?>" alt="Logo" class="backstage-logo">
             <?php endif; ?>
