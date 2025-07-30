@@ -1,0 +1,17 @@
+{
+    "name": "muhammadqasimar/backstage",
+    "autoload": {
+        "psr-4": {
+            "Muhammadqasimar\\Backstage\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Muhammad Qasim",
+            "email": "kingqasimmalik8@gmail.com"
+        }
+    ],
+    "require": {
+        "phpoffice/phpspreadsheet": "^4.5"
+    }
+}
