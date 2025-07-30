@@ -758,6 +758,34 @@ class Elementor_Backstage_Widget extends \Elementor\Widget_Base {
             ]
         );
 
+        $this->add_group_control(
+			\Elementor\Group_Control_Border::get_type(),
+			[
+				'name' => 'border',
+				'selector' => '{{WRAPPER}} .backstage-image',
+			]
+		);
+
+        $this->add_group_control(
+            \Elementor\Group_Control_Box_Shadow::get_type(),
+            [
+                'name' => 'image_shadow',
+                'label' => esc_html__('Image Shadow', 'backstage-by-mq'),
+                'selector' => '{{WRAPPER}} .backstage-image',
+                'fields_options' => [
+                    'box_shadow' => [
+                        'default' => [
+                            'horizontal' => 2,
+                            'vertical' => 2,
+                            'blur' => 4,
+                            'spread' => 0,
+                            'color' => 'rgba(0, 0, 0, 0.6)',
+                        ],
+                    ],
+                ],
+            ]
+        );
+
         $this->end_controls_section();
 
         /**************************************************************************************************/
