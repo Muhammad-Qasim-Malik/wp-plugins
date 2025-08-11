@@ -1,0 +1,6 @@
+{
+    "require": {
+        "phpoffice/phpspreadsheet": "1.28",
+        "zfhassaan/jazzcash": "1.0.0"
+    }
+}

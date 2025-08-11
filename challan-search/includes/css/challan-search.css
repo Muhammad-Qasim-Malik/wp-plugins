@@ -1,0 +1,406 @@
+.my_challan_form form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+.my_challan_form input[type="text"] {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+.my_challan_form input[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-sizing: border-box;
+}
+
+.my_challan_form input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.my_challan_form input:focus {
+    outline: none;
+    border-color: #007BFF;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+.challan-container {
+width: 100%;
+margin: 20px auto;
+display: flex;
+flex-direction: column;
+gap: 20px;
+}
+
+/* Individual card styling */
+.challan-card {
+background: #f9f9f9;
+border: 1px solid #ddd;
+border-radius: 8px;
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+padding: 20px;
+font-family: Arial, sans-serif;
+width: 100%;
+}
+
+/* Card title */
+.challan-title {
+    color: #333;
+    margin-bottom: 15px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.challan-title span {
+    font-size: 16px;
+    margin: 0 10px;
+}
+
+.challan-details {
+    font-size: 16px; 
+    line-height: 1.6;
+    margin-top: 20px;
+}
+
+.challan-label {
+    font-weight: bold; /* Makes the label bold */
+    margin-right: 10px; /* Space between label and dynamic text */
+    font-size: 16px; /* Same as regular text, so labels and content align properly */
+}
+
+.dynamic-text {
+    font-size: 18px; /* 2-3px larger for dynamic content */
+    font-weight: bold; /* Bold for dynamic content */
+}
+.dynamic-detail-text {
+    font-size: 16px;
+    font-weight: bold;
+}
+.challan-note {
+    font-style: italic; /* Italicize the note */
+    margin-top: 10px; /* Space between note and other content */
+    font-size: 14px; /* Smaller font size for the note */
+}
+
+.challan-details p {
+    margin: 5px 0; /* Small margin between each line of content */
+}
+
+/* Rows in the card */
+.challan-row {
+display: flex;
+justify-content: space-between;
+margin-bottom: 10px;
+}
+
+/* Text formatting */
+.challan-card p {
+margin: 0;
+font-size: 14px;
+color: #555;
+width: 48%; 
+}
+
+
+
+
+.button-container {
+    display: flex;
+    gap: 10px;
+}
+.button-container form {
+    flex: 1;
+}
+.button-container form:only-child {
+    flex: 100%;
+}
+/* Button styling */
+.challan-btn, .pay-now {
+    display: inline-block;
+    padding: 10px 20px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 15px;
+    text-decoration: none;
+    width: 100%;
+}
+
+.pay-now {
+    background-color: red;
+}
+.pay-now:hover {
+    background-color: rgb(138, 4, 4);
+}
+
+/* Global styles for the form container */
+.my-challan-form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Styles for each form group (label + input) */
+.form-group {
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+/* Label styling */
+.label {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+    display: block;
+}
+
+/* Input field styling */
+.input-field {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+/* Input focus styling */
+.input-field:focus {
+    outline: none;
+    border-color: #007BFF;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Submit button styling */
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-sizing: border-box;
+}
+
+
+
+/* Error message styling */
+.show-error p {
+    margin-top: 10px;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: rgba(221, 221, 221, 0.527) !important;
+    color: rgb(102, 100, 100);
+}
+
+.status-paid {
+    color: #fff;
+    background-color: #28a745;
+    padding: 3px 10px;
+    border-radius: 5px;
+}
+
+.challan-form-admin {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.challan-form-admin h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.challan-form-admin label {
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+}
+.challan-form-admin input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+.challan-form-admin input[type="submit"] {
+    background-color: #0073aa;
+    color: white;
+    cursor: pointer;
+    margin-top: 15px;
+    font-size: 16px;
+}
+.challan-form-admin input[type="submit"]:hover {
+    background-color: #005f8d;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+/* Modal Content */
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+    min-width: 350px;
+    transform: scale(0.8);
+    transition: transform 0.3s ease-in-out;
+    position: relative;
+}
+
+/* Show Modal */
+.modal-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+.modal-overlay.show .modal-content {
+    transform: scale(1);
+}
+
+/* Close Button */
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #555;
+}
+.close-modal:hover {
+    color: #000;
+}
+
+/* Modal Heading */
+.modal-content h2 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+/* Dropdown Styling */
+.modal-content select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: #f9f9f9;
+    margin-bottom: 15px;
+}
+
+/* Buttons */
+.modal-content button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.2s;
+}
+.modal-content button.button-primary {
+    background-color: #28a745;
+    color: white;
+    margin-right: 10px;
+}
+.modal-content button.button-primary:hover {
+    background-color: #218838;
+}
+.modal-content button.close-modal {
+    background-color: #dc3545;
+    color: white;
+}
+.modal-content button.close-modal:hover {
+    background-color: #c82333;
+}
+
+.pagination { 
+    text-align: center; 
+    margin-top: 20px; 
+}
+.page-btn { 
+    padding: 5px 10px; 
+    margin: 3px; 
+    border-radius: 4px; 
+    border: 1px solid #ddd; 
+    cursor: pointer; 
+}
+.page-btn.active { 
+    background: #0073aa;
+    color: white;
+}
+.delete-bulk { 
+    background: red !important; 
+    color: white !important; 
+    margin-top: 10px !important;
+ }
+
+.copy {
+    background-color: blue; 
+    color: white; 
+    padding: 9px 8px; 
+    font-size: 12px; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    display: inline;
+}
+.my-custom-input{
+    font-size: 24px !important;
+    font-weight: bolder !important;
+    color: black;
+    text-align: right;
+}
+
+@media (max-width: 800px) {
+    #challan_input {
+      font-size: 17px !important;
+    }
+  }
+  @media (max-width: 500px) {
+    #challan_input {
+      font-size: 11px !important;
+    }
+  }

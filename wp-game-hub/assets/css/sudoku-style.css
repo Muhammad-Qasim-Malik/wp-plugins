@@ -1,0 +1,77 @@
+#game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#sudoku-game {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    /* max-width: 450px;  */
+    margin: 0 auto; 
+    padding: 20px;
+}
+
+.block-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.block {
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+    /* padding: 10px; */
+    /* border: 1px solid red; */
+}
+
+.block-row-cells {
+    display: flex;
+}
+
+.block-row-cells input {
+    /* width: 30px; */
+    /* height: 30px;  */
+    font-size: 18px;
+    background-color: transparent;
+    text-align: center;
+    border: 1px solid #bbb;
+    margin: 2px; 
+    box-sizing: border-box;
+    transition: background-color 0.3s, border-color 0.2s;
+}
+
+.block-row-cells input:disabled {
+    background-color: #f0f0f0;
+    font-weight: bold;
+    color: #333;
+    border: 1px solid #aaa;
+}
+
+.correct {
+    background-color: #c8f7c5 ; 
+}
+
+.incorrect {
+    background-color: #fbc7c7 ; 
+}
+
+.gamehubbutton {
+    margin-top: 10px;
+    padding: 8px 16px;
+    font-size: 16px;
+    font-weight: 500;
+    background-color: #0073aa;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    transition: background-color 0.3s ease;
+}
+
+.gamehubbutton:hover {
+    background-color: #005f8d;
+}

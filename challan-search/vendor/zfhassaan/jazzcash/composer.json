@@ -1,0 +1,31 @@
+{
+    "name": "zfhassaan/jazzcash",
+    "description": "JazzCash Payment Gateway Package for Laravel 9",
+    "type": "library",
+    "require": {
+        "guzzlehttp/guzzle": "^7.5"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "zfhassaan\\jazzcash\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Hassaan Ali",
+            "email": "zfhassaan@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "zfhassaan\\jazzcash\\provider\\ServiceProvider"
+            ],
+            "aliases": {
+                "jazzcash": "zfhassaan\\jazzcash\\facade\\JazzcashFacade"
+            }
+        }
+    },
+    "minimum-stability": "beta"
+}

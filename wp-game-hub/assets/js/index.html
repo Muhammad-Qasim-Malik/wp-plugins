@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Jigsaw Puzzle</title>
+
+    <!-- jQuery UI CSS -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <style>
+        /* Puzzle container */
+        #jigsaw-puzzle-container {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            margin: 20px auto;
+            border: 2px solid #333;
+            overflow: hidden;
+        }
+
+        /* Puzzle pieces container below the puzzle */
+        #jigsaw-pieces-container {
+            margin: 20px auto;
+            width: 400px;
+            overflow-x: auto;
+            white-space: nowrap;
+            text-align: center;
+            border: 2px solid #333;
+            padding: 10px 0;
+        }
+
+        /* Styling for each puzzle piece */
+        .puzzle-piece {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            border: 2px solid #333;
+            background-size: cover;
+            cursor: pointer;
+            margin-right: 5px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Puzzle area styling */
+        #jigsaw-puzzle {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Hover effect for puzzle pieces */
+        .puzzle-piece:hover {
+            opacity: 0.8;
+        }
+
+        /* Styling for the drop zones inside the puzzle */
+        .drop-zone {
+            border: 1px dashed #ccc;
+            background-color: #f0f0f0;
+            position: absolute;
+            width: 100px;
+            height: 100px;
+        }
+
+        .puzzle-piece.placed {
+            position: absolute;
+            cursor: default;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Puzzle container -->
+    <div id="jigsaw-puzzle-container">
+        <div id="jigsaw-puzzle"></div>
+    </div>
+
+    <!-- Puzzle pieces container below the puzzle -->
+    <div id="jigsaw-pieces-container"></div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- jQuery UI -->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var puzzleImage = 'https://images.pexels.com/photos/32682886/pexels-photo-32682886.jpeg';
+            var difficulty = 'easy';
+            var pieces = [];
+
+            // Initialize the puzzle
+            function initPuzzle() {
+                var puzzleContainer = $('#jigsaw-puzzle');
+                var puzzlePiecesContainer = $('#jigsaw-pieces-container');
+                pieces = generatePuzzlePieces(puzzleImage, difficulty);
+                var index = 0;
+
+                pieces.forEach(function(piece) {
+                    // Create puzzle piece
+                    var pieceElement = $('<div class="puzzle-piece" id="piece-' + index + '" data-piece="' + index + '"></div>');
+                    pieceElement.css({
+                        'background-image': 'url(' + puzzleImage + ')',
+                        'background-position': piece.position,
+                        'width': piece.width + 'px',
+                        'height': piece.height + 'px',
+                        'background-size': puzzleContainer.width() + 'px ' + puzzleContainer.height() + 'px'
+                    });
+
+                    puzzlePiecesContainer.append(pieceElement);
+
+                    // Create drop zone
+                    var dropZone = $('<div class="drop-zone" id="drop-zone-' + index + '" data-index="' + index + '"></div>');
+                    dropZone.css({
+                        'top': piece.top + 'px',
+                        'left': piece.left + 'px',
+                        'width': piece.width + 'px',
+                        'height': piece.height + 'px'
+                    });
+                    puzzleContainer.append(dropZone);
+
+                    // Make piece draggable
+                    pieceElement.draggable({
+                        containment: 'document',
+                        revert: function(dropped) {
+                            return !dropped; // Revert if not dropped on valid drop zone
+                        },
+                        start: function() {
+                            $(this).css('z-index', 1000);
+                        }
+                    });
+
+                    // Make drop zone droppable
+                    dropZone.droppable({
+                        accept: '#piece-' + index,
+                        drop: function(event, ui) {
+                            var piece = ui.draggable;
+                            piece.addClass('placed').css({
+                                'top': $(this).position().top + 'px',
+                                'left': $(this).position().left + 'px',
+                                'z-index': 1
+                            }).appendTo(puzzleContainer).draggable('disable');
+                            checkPuzzleCompletion();
+                        }
+                    });
+
+                    // Click to place piece
+                    pieceElement.on('click', function() {
+                        if (!$(this).hasClass('placed')) {
+                            placePiece($(this), index);
+                        }
+                    });
+
+                    index++;
+                });
+            }
+
+            // Generate puzzle pieces based on difficulty
+            function generatePuzzlePieces(image, difficulty) {
+                var pieces = [];
+                var rows = difficulty === 'easy' ? 4 : difficulty === 'medium' ? 6 : 8;
+                var cols = rows;
+                var pieceWidth = 400 / cols;
+                var pieceHeight = 400 / rows;
+
+                for (var row = 0; row < rows; row++) {
+                    for (var col = 0; col < cols; col++) {
+                        var position = '-' + (col * pieceWidth) + 'px ' + '-' + (row * pieceHeight) + 'px';
+                        pieces.push({
+                            position: position,
+                            width: pieceWidth,
+                            height: pieceHeight,
+                            top: row * pieceHeight,
+                            left: col * pieceWidth
+                        });
+                    }
+                }
+                return pieces;
+            }
+
+            // Place piece on click
+            function placePiece(pieceElement, index) {
+                var dropZone = $('#drop-zone-' + index);
+                pieceElement.addClass('placed').css({
+                    'top': dropZone.position().top + 'px',
+                    'left': dropZone.position().left + 'px',
+                    'z-index': 1
+                }).appendTo($('#jigsaw-puzzle')).draggable('disable');
+                checkPuzzleCompletion();
+            }
+
+            // Check if puzzle is complete
+            function checkPuzzleCompletion() {
+                var correctPieces = $('.puzzle-piece.placed').length;
+                if (correctPieces === pieces.length) {
+                    setTimeout(function() {
+                        alert('Puzzle completed!');
+                    }, 500);
+                }
+            }
+
+            // Shuffle pieces
+            function shufflePieces() {
+                var container = $('#jigsaw-pieces-container');
+                var pieces = container.children().get();
+                pieces.sort(function() { return Math.random() - 0.5; });
+                container.empty();
+                $.each(pieces, function(index, piece) {
+                    container.append(piece);
+                });
+            }
+
+            // Initialize and shuffle
+            initPuzzle();
+            shufflePieces();
+        });
+    </script>
+</body>
+</html>

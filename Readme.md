@@ -14,8 +14,11 @@ This repository is currently under active development, and new plugins will be a
 
 - *Custom Sitemap* – For General Use.
 - *Backstage by MQ* – For General Use.
+- *MQ Elementor Widgets* – For General Use.
+- *WP Game Hub* – For General Use.
 - *MQ Cook Zone* – For Client.
 - *MQ Members* – For Client.
+- *Challan Search* – For Client.
 
 Once plugins are added, this list will be updated.
 
