@@ -1,11 +1,10 @@
 <?php
 /**
  * Plugin Name: Challan Search Plugin
- * Plugin URI: https://metaviz.pro
  * Description: Allows admin to upload challan data and provides a public search page.
  * Version: 1.0.0
- * Author: Metaviz
- * Author URI: https://metaviz.pro
+ * Author: Muhammad Qasim
+ * Text Domain: challan-search-plugin
  */
 
 /**

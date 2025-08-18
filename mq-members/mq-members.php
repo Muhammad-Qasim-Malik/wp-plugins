@@ -4,6 +4,7 @@
  * Author: Muhammad Qasim
  * Description: Provides signup/login shortcodes, Stripe integration, and a user dashboard for Muay-Thai posts.
  * Version: 1.0
+ * Text Domain: mq-members
  */
 
 if (!defined('ABSPATH')) exit;

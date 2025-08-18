@@ -4,7 +4,7 @@
  * Description: A custom sitemap plugin for managing post URLs, sitemaps, and their relationships.
  * Version: 1.0
  * Author: Muhammad Qasim
- * License: GPL2
+ * Text Domain: custom-sitemap-generator
  */
 
 // Create custom database table on plugin activation

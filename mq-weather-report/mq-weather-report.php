@@ -4,6 +4,7 @@
  * Description: Simple weather report plugin with shortcode [mq_weather].
  * Version: 1.0.0
  * Author: Muhammad Qasim
+ * Text Domain: mq-weather-report
  */
 
 if (!defined('ABSPATH')) exit;
