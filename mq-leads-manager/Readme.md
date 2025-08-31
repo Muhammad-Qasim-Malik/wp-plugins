@@ -65,7 +65,7 @@ Manage Google Maps scraped data, upload leads in bulk, and send personalized or 
 
 * WordPress **5.0+**
 * PHP **7.4+**
-* Recommended: [WP Mail SMTP](https://wordpress.org/plugins/wp-mail-smtp/) for better email delivery
+<!-- * Recommended: [WP Mail SMTP](https://wordpress.org/plugins/wp-mail-smtp/) for better email delivery -->
 
 ---
 
