@@ -6,8 +6,6 @@ function mq_redirect_get_redirects($table) {
 
     $query = $wpdb->prepare(
         "SELECT * FROM $table_name ORDER BY id DESC",
-        $per_page,
-        $offset
     );
 
     $results = $wpdb->get_results($query);
