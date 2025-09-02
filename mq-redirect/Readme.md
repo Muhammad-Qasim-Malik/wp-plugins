@@ -49,12 +49,9 @@ It’s built to simplify redirect management without requiring third-party plugi
 ## 📊 CSV Upload Format
 Your CSV file should have **two columns**:  
 
-```csv
 old_url,new_url
 /old-page,/new-page
 /legacy-page,/modern-page
-````
-
 ---
 
 ## 🤝 Contributing
