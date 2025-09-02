@@ -19,6 +19,7 @@ This repository is currently under active development, and new plugins will be a
 - *MQ Weather Report* – For General Use.
 - *MQ Announcement Bar* – For General Use.
 - *MQ Reading Time* – For General Use.
+- *MQ Redirects* – For General Use.
 - *MQ Cook Zone* – For Client.
 - *MQ Members* – For Client.
 - *Challan Search* – For Client.
