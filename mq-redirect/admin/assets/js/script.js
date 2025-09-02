@@ -100,7 +100,7 @@ jQuery(document).ready(function($){
             processData: false, 
             success: function(response) {
                 if (response.success) {
-                    alert('Success: ' + response.data.message);
+                    alert(response.data.inserted + " redirects added successfully.");
                     window.location.reload();
                 } else {
                     alert('Error: ' + response.data.message);
