@@ -16,6 +16,7 @@ This repository is currently under active development, and new plugins will be a
 - *Backstage by MQ* – For General Use.
 - *MQ Elementor Widgets* – For General Use.
 - *WP Game Hub* – For General Use.
+- *WP Activity Tracker* – For General Use.
 - *MQ Weather Report* – For General Use.
 - *MQ Announcement Bar* – For General Use.
 - *MQ Reading Time* – For General Use.
