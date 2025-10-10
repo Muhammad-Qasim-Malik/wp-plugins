@@ -2,8 +2,8 @@
 /*
 Plugin Name: Auto Image & Media Optimizer
 Description: Automatically optimizes images, converts to WebP, and replaces original PNG/JPEG with WebP (same filename, preserves attachment ID). Shows WebP in admin.
-Version: 6.8
-Author: Your Name
+Version: 1.0.0
+Author: Muhammad Qasim
 License: GPL2
 */
 
