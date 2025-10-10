@@ -859,4 +859,27 @@ function aimo_render_admin_page() {
     </script>
     <?php
 }
+
+function aimo_disable_image_sizes() {
+    // Remove default WordPress image sizes
+    remove_image_size('thumbnail');  // 
+    remove_image_size('medium');
+    remove_image_size('large');
+
+    // Disable additional WordPress image sizes
+    add_filter('intermediate_image_sizes_advanced', function($sizes) {
+        // Unset all intermediate sizes you don't want
+        unset($sizes['medium']);
+        unset($sizes['large']);
+        unset($sizes['medium_large']);
+        unset($sizes['1536x1536']);
+        unset($sizes['2048x2048']);
+        unset($sizes['thumbnail']); // Ensure 150x150 is removed
+        return $sizes;
+    });
+}
+
+add_action('init', 'aimo_disable_image_sizes');
+
+
 ?>
