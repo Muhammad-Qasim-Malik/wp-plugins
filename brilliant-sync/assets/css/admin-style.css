@@ -1,0 +1,322 @@
+.bsync-container {
+    max-width: 1000px;
+    margin: 20px auto;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+    overflow: hidden;
+}
+.bsync-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 30px;
+    text-align: center;
+    position: relative;
+}
+.bsync-header h1 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 600;
+    color: white;
+}
+.bsync-header p {
+    margin: 8px 0 0 0;
+    opacity: 0.9;
+    font-size: 14px;
+}
+.bsync-progress {
+    display: flex;
+    justify-content: space-between;
+    background: white;
+    padding: 20px 30px;
+    border-bottom: 2px solid #f0f0f0;
+}
+.bsync-step {
+    flex: 1;
+    text-align: center;
+    position: relative;
+}
+.bsync-step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    right: -50%;
+    height: 2px;
+    background: #e0e0e0;
+    z-index: -1;
+}
+.bsync-step-number {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background: #e0e0e0;
+    color: #666;
+    border-radius: 50%;
+    line-height: 40px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+.bsync-step.active .bsync-step-number {
+    background: #667eea;
+    color: white;
+}
+.bsync-step.completed .bsync-step-number {
+    background: #4caf50;
+    color: white;
+}
+.bsync-step-label {
+    font-size: 13px;
+    font-weight: 500;
+    color: #666;
+    display: block;
+}
+.bsync-step.active .bsync-step-label {
+    color: #667eea;
+}
+.bsync-content {
+    background: white;
+    padding: 40px;
+}
+.bsync-section-title {
+    font-size: 22px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.bsync-section-desc {
+    color: #999;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+.bsync-form-group {
+    margin-bottom: 25px;
+}
+.bsync-label {
+    display: block;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+select, input[type="text"], input[type="url"], input[type="number"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+select:focus, input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+.bsync-items-container {
+    background: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+.bsync-items-container table {
+    width: 100%;
+}
+.bsync-items-container table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #e0e0e0;
+}
+.bsync-items-container table tr:last-child td {
+    border-bottom: none;
+}
+.bsync-items-container input[type="checkbox"] {
+    width: auto;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.bsync-mapping-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    overflow: hidden;
+}
+.bsync-mapping-table thead {
+    background: #f5f5f5;
+}
+.bsync-mapping-table th {
+    padding: 12px 15px;
+    text-align: left;
+    font-weight: 600;
+    color: #333;
+    border-bottom: 2px solid #ddd;
+}
+.bsync-mapping-table td {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+.bsync-mapping-table tr:last-child td {
+    border-bottom: none;
+}
+.bsync-field-name {
+    font-weight: 600;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.bsync-field-badge {
+    display: inline-block;
+    background: #667eea;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+}
+.bsync-custom-value {
+    display: flex;
+    gap: 10px;
+    margin-top: 8px;
+}
+.bsync-custom-value input {
+    flex: 1;
+}
+.bsync-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    gap: 10px;
+}
+.bsync-button {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.bsync-button-secondary {
+    background: #e0e0e0;
+    color: #333;
+}
+.bsync-button-secondary:hover {
+    background: #d0d0d0;
+}
+.bsync-button-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    flex: 1;
+}
+.bsync-button-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+}
+.bsync-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+.bsync-log {
+    background: #1a1a1a;
+    color: #00ff00;
+    padding: 20px;
+    height: 350px;
+    overflow-y: auto;
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    border-radius: 6px;
+    border: 1px solid #333;
+    line-height: 1.6;
+}
+.bsync-log-line {
+    padding: 4px 0;
+}
+.bsync-log-success {
+    color: #00ff00;
+}
+.bsync-log-error {
+    color: #ff4444;
+}
+.bsync-log-info {
+    color: #44ffff;
+}
+.bsync-credentials-box {
+    background: #f0f6fb;
+    padding: 20px;
+    border-radius: 6px;
+    border-left: 4px solid #667eea;
+    margin-bottom: 20px;
+}
+.bsync-credentials-box h4 {
+    margin: 0 0 15px 0;
+    color: #333;
+}
+.bsync-credentials-box .bsync-form-group {
+    margin-bottom: 15px;
+}
+.bsync-credentials-box .bsync-form-group:last-child {
+    margin-bottom: 0;
+}
+.bsync-info {
+    background: #e3f2fd;
+    border-left: 4px solid #2196f3;
+    padding: 12px 15px;
+    border-radius: 4px;
+    font-size: 13px;
+    color: #1565c0;
+    margin-bottom: 20px;
+}
+.bsync-warning {
+    background: #fff3cd;
+    border-left: 4px solid #ffc107;
+    padding: 12px 15px;
+    border-radius: 4px;
+    font-size: 13px;
+    color: #856404;
+    margin-bottom: 20px;
+}
+.bsync-success {
+    background: #d4edda;
+    border-left: 4px solid #28a745;
+    padding: 12px 15px;
+    border-radius: 4px;
+    font-size: 13px;
+    color: #155724;
+    margin-bottom: 20px;
+}
+.bsync-select-all {
+    margin: 15px 0;
+}
+.bsync-select-all input {
+    width: auto;
+    margin-right: 8px;
+}
+.bsync-select-all label {
+    cursor: pointer;
+    font-weight: 500;
+}
+.bsync-form-group select {
+  max-width: 100%;
+  width: 100% ;
+  padding: 15px 20px;
+}
+
+
+.bsync-settings-link {
+  position: absolute; 
+  bottom: 20px;
+  right: 10px;
+  padding: 10px 15px;
+  border: 1px solid white;
+  border-radius: 8px;
+  color: white;
+  font-weight: 700;
+  text-decoration: none;
+}
+.bsync-settings-link:hover {
+  color: white;
+}
